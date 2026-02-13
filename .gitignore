@@ -1,8 +1,7 @@
 .worktrees
 .direnv
+.env
 secrets/*
-!secrets/params.yaml
-!secrets/REDACTED-params.yaml
 work/*
 !work/.gitkeep
 
