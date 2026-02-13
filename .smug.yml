@@ -1,0 +1,17 @@
+sendkeys_timeout: 0
+session: homelab
+windows:
+- name: zsh
+  root: /home/crdant/workspace/homelab
+  panes:
+  - commands: []
+  layout: tiled
+- name: nvim
+  root: /home/crdant/workspace/homelab
+  commands:
+    - nvim
+- name: K9s
+  root: /home/crdant/workspace/homelab
+  commands:
+    - k9s
+

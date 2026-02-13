@@ -1,0 +1,90 @@
+[devshell]
+name = "homelab"
+motd = """
+{202}Homelab Kubernetes Management{reset}
+
+$(type -p menu &>/dev/null && menu)
+"""
+
+# Kubernetes core tools
+[[commands]]
+package = "kubectl"
+category = "kubernetes"
+help = "Kubernetes CLI"
+
+[[commands]]
+package = "k9s"
+category = "kubernetes"
+help = "Terminal UI for Kubernetes"
+
+[[commands]]
+package = "kustomize"
+category = "kubernetes"
+help = "Kubernetes configuration customization"
+
+[[commands]]
+package = "kubernetes-helm"
+name = "helm"
+category = "kubernetes"
+help = "Kubernetes package manager"
+
+# GitOps
+[[commands]]
+package = "fluxcd"
+name = "flux"
+category = "gitops"
+help = "GitOps toolkit for Kubernetes"
+
+# Secrets management
+[[commands]]
+package = "sops"
+category = "secrets"
+help = "Secrets OPerationS - encrypted secrets"
+
+[[commands]]
+package = "age"
+category = "secrets"
+help = "Simple, modern encryption tool"
+
+# Data processing
+[[commands]]
+package = "yq-go"
+name = "yq"
+category = "tools"
+help = "YAML processor"
+
+[[commands]]
+package = "jq"
+category = "tools"
+help = "JSON processor"
+
+# OCI/Container images
+[[commands]]
+package = "crane"
+category = "oci"
+help = "Inspect and manipulate OCI images"
+
+[[commands]]
+package = "skopeo"
+category = "oci"
+help = "Copy and inspect container images"
+
+# Backup
+[[commands]]
+package = "restic"
+category = "backup"
+help = "Fast, secure backup program"
+
+[[commands]]
+package = "velero"
+category = "backup"
+help = "Kubernetes backup and disaster recovery"
+
+# Environment variables
+[[env]]
+name = "KUBECONFIG"
+eval = "$KUBECONFIG:-$HOME/.kube/config"
+
+[[env]]
+name = "SOPS_AGE_KEY_FILE"
+eval = "$SOPS_AGE_KEY_FILE:-$HOME/.config/sops/age/keys.txt"
