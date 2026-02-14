@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vault-values
+  namespace: flux-system
+data:
+  ingress.yaml: |
+    server:
+      ingress:
+        enabled: true
+        ingressClassName: ""
+        annotations:
+          kubernetes.io/tls-acme: "true"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
+          cert-manager.io/cluster-issuer: shortrib-clusterissuer
+        hosts:
+          - host: vault.shortrib.run
+            paths:
+              - /
+        tls:
+          - secretName: vault.shortrib.run-tls
+            hosts:
+              - vault.shortrib.run
