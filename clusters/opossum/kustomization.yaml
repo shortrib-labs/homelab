@@ -4,3 +4,12 @@ resources:
 - ../../applications/vault
 patches:
 - path: values-patch.yaml
+- target:
+    kind: HelmRelease
+    name: vault
+  patch: |
+    - op: add
+      path: /spec/kubeConfig
+      value:
+        secretRef:
+          name: opossum-kubeconfig
